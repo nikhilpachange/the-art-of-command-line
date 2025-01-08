@@ -402,152 +402,68 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
-
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
-
-- `m4`: simple macro processor
-
-- `yes`: print a string a lot
-
-- `cal`: nice calendar
-
-- `env`: run a command (useful in scripts)
-
-- `printenv`: print out environment variables (useful in debugging and scripts)
-
-- `look`: find English words (or lines in a file) beginning with a string
-
-- `cut`, `paste` and `join`: data manipulation
-
-- `fmt`: format text paragraphs
-
-- `pr`: format text into pages/columns
-
-- `fold`: wrap lines of text
-
-- `column`: format text fields into aligned, fixed-width columns or tables
-
-- `expand` and `unexpand`: convert between tabs and spaces
-
-- `nl`: add line numbers
-
-- `seq`: print numbers
-
-- `bc`: calculator
-
-- `factor`: factor integers
-
-- [`gpg`](https://gnupg.org/): encrypt and sign files
-
-- `toe`: table of terminfo entries
-
-- `nc`: network debugging and data transfer
-
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
-
-- [`slurm`](https://github.com/mattthias/slurm): network traffic visualization
-
-- `dd`: moving data between files or devices
-
-- `file`: identify type of a file
-
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
-
-- `stat`: file info
-
-- `time`: execute and time a command
-
-- `timeout`: execute a command for specified amount of time and stop the process when the specified amount of time completes.
-
-- `lockfile`: create semaphore file that can only be removed by `rm -f`
-
-- `logrotate`: rotate, compress and mail logs.
-
-- `watch`: run a command repeatedly, showing results and/or highlighting changes
-
-- [`when-changed`](https://github.com/joh/when-changed): runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well.
-
-- `tac`: print files in reverse
-
-- `comm`: compare sorted files line by line
-
-- `strings`: extract text from binary files
-
-- `tr`: character translation or manipulation
-
-- `iconv` or `uconv`: conversion for text encodings
-
-- `split` and `csplit`: splitting files
-
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
-
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
-
-- `apg`: generates random passwords
-
-- `xz`: high-ratio file compression
-
-- `ldd`: dynamic library info
-
-- `nm`: symbols from object files
-
-- `ab` or [`wrk`](https://github.com/wg/wrk): benchmarking web servers
-
-- `strace`: system call debugging
-
-- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
-
-- `cssh`: visual concurrent shell
-
-- `rsync`: sync files and folders over SSH or in local file system
-
-- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
-
-- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
-
-- `host` and `dig`: DNS lookups
-
-- `lsof`: process file descriptor and socket info
-
-- `dstat`: useful system stats
-
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
-
-- `iostat`: Disk usage stats
-
-- `mpstat`: CPU usage stats
-
-- `vmstat`: Memory usage stats
-
-- `htop`: improved version of top
-
-- `last`: login history
-
-- `w`: who's logged on
-
-- `id`: user/group identity info
-
-- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historic system stats
-
-- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
-
-- `ss`: socket statistics
-
-- `dmesg`: boot and system error messages
-
-- `sysctl`: view and configure Linux kernel parameters at run time
-
-- `hdparm`: SATA/ATA disk manipulation/performance
-
-- `lsblk`: list block devices: a tree view of your disks and disk partitions
-
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
-
-- `lsmod` and `modinfo`: List and show details of kernel modules.
-
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
+Text Manipulation and Formatting
+expr: Perform arithmetic, boolean operations, or evaluate regex expressions. Useful in shell scripts.
+fmt: Format text paragraphs to wrap lines neatly at a specific width.
+pr: Prepare text for printing with pagination or columns.
+fold: Wrap text to a fixed width, useful for preparing text for terminal output.
+column: Format text into aligned columns; ideal for visualizing tabular data.
+cut, paste, join: Manipulate delimited text files for extracting, merging, or correlating data.
+expand / unexpand: Convert tabs to spaces or vice versa.
+nl: Add line numbers to a file, handy for debugging.
+tac: Reverse the order of lines in a file.
+tr: Transform or delete characters (e.g., case conversion, whitespace cleanup).
+strings: Extract human-readable strings from binary files.
+File and Directory Tools
+tree: Display directories and files in a nested tree format.
+stat: Display detailed file info, such as permissions and timestamps.
+timeout: Limit the runtime of a command.
+lockfile: Create semaphore files for safe concurrent operations.
+sponge: Safely overwrite input files after processing.
+split / csplit: Break large files into smaller chunks.
+File Compression and Encoding
+xz: Compress files with high efficiency.
+iconv / uconv: Convert file encoding (e.g., UTF-8 to ISO-8859-1).
+factor: Find the prime factors of an integer.
+Networking and Debugging
+nc (Netcat): Network debugging, data transfer, or as a lightweight server.
+socat: Socket relay and TCP/UDP port forwarder.
+slurm: Visualize network traffic in a terminal.
+mtr: Enhanced traceroute with real-time network stats.
+wireshark / tshark: Packet capture for network debugging.
+ngrep: "Grep" for the network layer.
+iftop / nethogs: Monitor network usage by process or socket.
+host / dig: Perform DNS lookups.
+ss: Display detailed socket stats; faster replacement for netstat.
+System and Hardware
+dstat: Comprehensive system stats (CPU, disk, network, etc.).
+glances: All-in-one system monitoring tool.
+iostat, mpstat, vmstat: Disk, CPU, and memory performance stats.
+hdparm: Fine-tune and test SATA/ATA disk performance.
+lsblk: Tree view of block devices and partitions.
+lshw, lscpu, lspci, lsusb, dmidecode: Detailed hardware information.
+lsmod / modinfo: Kernel module listing and details.
+sysctl: View or modify kernel runtime parameters.
+Utilities and Miscellaneous
+yes: Repeatedly print a string. Often used for testing or automating responses.
+cal: Display a simple calendar.
+env / printenv: Manage or debug environment variables.
+units: Perform unit conversions (e.g., furlongs per fortnight).
+toe: View terminfo entries for terminal capabilities.
+logrotate: Manage and archive logs systematically.
+watch: Run a command periodically and monitor changes.
+when-changed: Automatically trigger a command on file change.
+ab / wrk: Benchmark web server performance.
+strace: Trace system calls for debugging.
+m4: A powerful macro processor, often used in preprocessing.
+apg: Generate random passwords.
+dd: Copy and convert data between files or devices.
+last / w: Show user login history or active sessions.
+id: Display user and group identity.
+Fun and "Useless" Commands
+fortune: Display random quotes or wisdom.
+sl: Watch a steam locomotive animation (mistype "ls" intentionally!).
+ddate: Display the Discordian date system.
 
 ## macOS only
 
